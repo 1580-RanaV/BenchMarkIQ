@@ -1,0 +1,68 @@
+{
+  "saas": {
+    "name": "SaaS",
+    "metrics": {
+      "gross_margin": 75,
+      "cac": 150,
+      "ltv": 1200,
+      "churn_rate": 5,
+      "arr_growth": 35,
+      "burn_rate": 25000
+    }
+  },
+  "retail": {
+    "name": "Retail",
+    "metrics": {
+      "gross_margin": 45,
+      "inventory_turnover": 6,
+      "conversion_rate": 2.5,
+      "aov": 85,
+      "cac": 25,
+      "return_rate": 8
+    }
+  },
+  "manufacturing": {
+    "name": "Manufacturing",
+    "metrics": {
+      "gross_margin": 35,
+      "inventory_turnover": 4,
+      "oee": 75,
+      "defect_rate": 2,
+      "lead_time": 14,
+      "capacity_utilization": 80
+    }
+  },
+  "fintech": {
+    "name": "FinTech",
+    "metrics": {
+      "gross_margin": 65,
+      "cac": 85,
+      "ltv": 950,
+      "transaction_volume": 50000,
+      "fraud_rate": 0.5,
+      "regulatory_capital": 12
+    }
+  },
+  "healthcare": {
+    "name": "Healthcare",
+    "metrics": {
+      "gross_margin": 55,
+      "patient_acquisition": 120,
+      "patient_retention": 85,
+      "compliance_score": 95,
+      "readmission_rate": 8,
+      "nps": 65
+    }
+  },
+  "ecommerce": {
+    "name": "E-commerce",
+    "metrics": {
+      "gross_margin": 40,
+      "conversion_rate": 3.2,
+      "aov": 75,
+      "cart_abandonment": 68,
+      "return_rate": 15,
+      "cac": 35
+    }
+  }
+}
