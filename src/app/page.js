@@ -70,7 +70,7 @@ export default function Home() {
   }
 
   return (
-  <div className="space-y-10">
+  <div className="space-y-10 text-xs md:text-lg">
     {/* Progress Card */}
     <div className="rounded-3xl bg-black text-white ring-1 ring-white/10 shadow-2xl p-8 md:p-10">
       {/* Header */}

@@ -58,7 +58,7 @@ export default function FileUpload({ onUpload }) {
   const openFileDialog = () => fileInputRef.current?.click();
 
   return (
-    <div className="rounded-3xl bg-black text-white ring-1 ring-white/10 shadow-2xl p-8 md:p-10">
+    <div className="text-xs md:text-lg rounded-3xl bg-black text-white ring-1 ring-white/10 shadow-2xl p-8 md:p-10">
       {/* Header */}
       <div className="text-center mb-8">
         <h2 className="text-2xl md:text-3xl font-bold tracking-tight">Upload Your Company Data</h2>

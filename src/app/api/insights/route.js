@@ -12,7 +12,7 @@ export async function POST(req) {
   try {
     const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
     const system = `
-    You are a KPI benchmarking analyst.
+    You are a KPI benchmarking analyst. Give detailed analysis and reports and more points.
     Return ONLY strict JSON with this schema:
     { "insights": [ { "kpi": string, "type": "strength"|"weakness"|"opportunity"|"risk",
       "priority": "high"|"medium"|"low", "impact": "High"|"Medium"|"Low",

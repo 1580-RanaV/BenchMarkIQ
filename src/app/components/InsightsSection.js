@@ -69,11 +69,11 @@ export default function InsightsSection({ insights }) {
   }
 
   return (
-  <div className="rounded-3xl bg-black text-white ring-1 ring-white/10 shadow-2xl p-6 md:p-8">
+  <div className="text-xs md:text-lg rounded-3xl bg-black text-white ring-1 ring-white/10 shadow-2xl p-6 md:p-8">
     {/* Header */}
     <div className="mb-6">
       <h3 className="text-xl font-semibold tracking-tight text-white">
-        AI-Generated Insights
+        AI-Generated
       </h3>
       <p className="text-sm text-neutral-400 mt-1">
         Strategic recommendations based on your benchmark comparison
