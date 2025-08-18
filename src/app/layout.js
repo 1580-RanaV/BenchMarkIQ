@@ -24,17 +24,11 @@ export default function RootLayout({ children }) {
       <div className="flex justify-center items-center h-full">
         {/* Logo + Brand */}
         <div className="flex items-center gap-4">
-          {/* Logo: 3 squares (middle rotated) */}
-          <div className="flex items-center gap-1">
-            <div className="w-8 h-8 rounded-sm bg-white"></div>
-            <div className="w-8 h-8 rounded-sm bg-white -rotate-90"></div>
-            <div className="w-8 h-8 rounded-sm bg-white"></div>
-          </div>
 
           {/* Brand */}
-          <h1 className="text-xl font-semibold tracking-tight">
-            <span className="text-white font-bold">BenchMark</span>
-            <span className="text-neutral-400 font-bold">IQ</span>
+          <h1 className="text-xl font-semibold">
+            <span className="text-white text-3xl font-bold">BenchMark</span>
+            <span className="text-neutral-400 text-3xl font-bold">IQ</span>
           </h1>
         </div>
       </div>
