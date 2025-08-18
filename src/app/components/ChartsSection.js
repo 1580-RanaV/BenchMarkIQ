@@ -1,6 +1,5 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
 import {
   Chart as ChartJS,
   RadialLinearScale,
@@ -34,12 +33,13 @@ export default function ChartsSection({ comparisons }) {
     return Math.min(Math.max(ratio * 50, 0), 100) // Scale around 50 as median
   }
 
+  // Radar chart data
   const radarData = {
-    labels: comparisons.map(comp => comp.name),
+    labels: comparisons.map((comp) => comp.name),
     datasets: [
       {
         label: 'Your Company',
-        data: comparisons.map(comp => 
+        data: comparisons.map((comp) =>
           normalizeValue(comp.yourValue, comp.benchmark)
         ),
         backgroundColor: 'rgba(14, 165, 233, 0.2)',
@@ -71,54 +71,58 @@ export default function ChartsSection({ comparisons }) {
         position: 'bottom',
         labels: {
           padding: 20,
-          font: {
-            size: 12,
-          },
+          font: { size: 12 },
+          color: 'rgba(255,255,255,0.85)',
         },
       },
       tooltip: {
+        titleColor: '#fff',
+        bodyColor: '#fff',
+        backgroundColor: 'rgba(17,17,17,0.9)',
+        borderColor: 'rgba(255,255,255,0.1)',
+        borderWidth: 1,
         callbacks: {
-          label: function(context) {
+          label: function (context) {
             const comparison = comparisons[context.dataIndex]
             if (context.datasetIndex === 0) {
               return `Your Company: ${comparison.yourValue}${comparison.unit}`
             } else {
               return `Industry Median: ${comparison.benchmark}${comparison.unit}`
             }
-          }
-        }
-      }
+          },
+        },
+      },
     },
     scales: {
       r: {
         beginAtZero: true,
         max: 100,
         min: 0,
+        grid: { color: 'rgba(255,255,255,0.12)' },
+        angleLines: { color: 'rgba(255,255,255,0.12)' },
+        pointLabels: { color: 'rgba(255,255,255,0.85)' },
         ticks: {
           display: false,
-        },
-        grid: {
-          color: 'rgba(0, 0, 0, 0.1)',
-        },
-        angleLines: {
-          color: 'rgba(0, 0, 0, 0.1)',
+          backdropColor: 'transparent',
+          color: 'rgba(255,255,255,0.8)',
         },
       },
     },
   }
 
+  // Bar chart data
   const barData = {
-    labels: comparisons.map(comp => comp.name),
+    labels: comparisons.map((comp) => comp.name),
     datasets: [
       {
         label: 'Difference from Median (%)',
-        data: comparisons.map(comp => comp.percentDifference),
-        backgroundColor: comparisons.map(comp => {
+        data: comparisons.map((comp) => comp.percentDifference),
+        backgroundColor: comparisons.map((comp) => {
           if (comp.status === 'positive') return 'rgba(34, 197, 94, 0.8)'
           if (comp.status === 'negative') return 'rgba(239, 68, 68, 0.8)'
           return 'rgba(107, 114, 128, 0.8)'
         }),
-        borderColor: comparisons.map(comp => {
+        borderColor: comparisons.map((comp) => {
           if (comp.status === 'positive') return 'rgb(34, 197, 94)'
           if (comp.status === 'negative') return 'rgb(239, 68, 68)'
           return 'rgb(107, 114, 128)'
@@ -132,53 +136,52 @@ export default function ChartsSection({ comparisons }) {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
-      legend: {
-        display: false,
-      },
+      legend: { display: false },
       tooltip: {
+        titleColor: '#fff',
+        bodyColor: '#fff',
+        backgroundColor: 'rgba(17,17,17,0.9)',
+        borderColor: 'rgba(255,255,255,0.1)',
+        borderWidth: 1,
         callbacks: {
-          label: function(context) {
+          label: function (context) {
             const value = context.parsed.y
             return `${value > 0 ? '+' : ''}${value}% vs median`
-          }
-        }
-      }
+          },
+        },
+      },
     },
     scales: {
       x: {
-        grid: {
-          display: false,
-        },
+        grid: { color: 'rgba(255,255,255,0.08)' },
         ticks: {
+          color: 'rgba(255,255,255,0.8)',
           maxRotation: 45,
-          font: {
-            size: 11,
-          },
+          font: { size: 11 },
         },
       },
       y: {
         beginAtZero: true,
-        grid: {
-          color: 'rgba(0, 0, 0, 0.1)',
-        },
+        grid: { color: 'rgba(255,255,255,0.08)' },
         ticks: {
-          callback: function(value) {
+          color: 'rgba(255,255,255,0.8)',
+          callback: function (value) {
             return value + '%'
-          }
-        }
+          },
+        },
       },
     },
   }
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-      {/* Radar Chart */}
-      <div className="card p-6">
+      {/* Radar Card */}
+      <div className="rounded-3xl bg-black text-white ring-1 ring-white/10 p-6 md:p-8 shadow-2xl">
         <div className="mb-4">
-          <h3 className="text-lg font-medium text-gray-900 tracking-tighter">
+          <h3 className="text-lg font-semibold tracking-tight text-white">
             Performance Overview
           </h3>
-          <p className="text-sm text-gray-600">
+          <p className="text-sm text-neutral-400">
             Radar view of all KPIs compared to industry medians
           </p>
         </div>
@@ -187,13 +190,13 @@ export default function ChartsSection({ comparisons }) {
         </div>
       </div>
 
-      {/* Bar Chart */}
-      <div className="card p-6">
+      {/* Bar Card */}
+      <div className="rounded-3xl bg-black text-white ring-1 ring-white/10 p-6 md:p-8 shadow-2xl">
         <div className="mb-4">
-          <h3 className="text-lg font-medium text-gray-900 tracking-tighter">
+          <h3 className="text-lg font-semibold tracking-tight text-white">
             Variance from Median
           </h3>
-          <p className="text-sm text-gray-600">
+          <p className="text-sm text-neutral-400">
             Percentage difference from industry benchmarks
           </p>
         </div>
