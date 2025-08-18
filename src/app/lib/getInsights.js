@@ -34,12 +34,12 @@ export async function getInsights({ comparisons, industryName }) {
   }
 
   const system = `
-You are a KPI benchmarking analyst.
+You are a KPI benchmarking analyst. You need to give detailed and very useful info.
 Return ONLY strict JSON with this schema:
 { "insights": [ { "kpi": string, "type": "strength"|"weakness"|"opportunity"|"risk",
   "priority": "high"|"medium"|"low", "impact": "High"|"Medium"|"Low",
   "message": string, "recommendations": string[] } ] }
-Use concise, business-safe wording. Max 5 recommendations each. No markdown.`;
+Use concise, business-safe wording. Compulsory 5 recommendations each. No markdown.`;
 
   const user = JSON.stringify({ industryName, comparisons });
 
